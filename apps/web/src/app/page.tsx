@@ -1,5 +1,5 @@
-import { GlobalHomeDashboard } from "@/components/home/GlobalHomeDashboard"
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return <GlobalHomeDashboard />
+  redirect('/p2p');
 }

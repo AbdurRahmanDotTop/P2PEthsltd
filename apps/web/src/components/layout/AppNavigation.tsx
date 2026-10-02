@@ -31,15 +31,15 @@ export function AppNavigation() {
   const navItems = [
     {
       name: "Home",
-      href: "/",
+      href: "https://ethsltd.com/",
       icon: Home,
-      isActive: pathname === "/",
+      isActive: false,
     },
     {
       name: "Trade",
-      href: "/trade",
+      href: "https://ethsltd.com/",
       icon: LineChart,
-      isActive: pathname.startsWith("/trade"),
+      isActive: false,
     },
     {
       name: "P2P",

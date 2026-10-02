@@ -7,9 +7,9 @@ export function Footer() {
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-12">
           <div className="col-span-2">
-            <Link href="/" className="font-display font-bold text-2xl text-foreground tracking-tight mb-4 flex items-center gap-2">
+            <a href="https://ethsltd.com/" className="font-display font-bold text-2xl text-foreground tracking-tight mb-4 flex items-center gap-2">
               <Logo className="h-10 w-auto" />
-            </Link>
+            </a>
             <p className="text-muted-foreground text-sm max-w-xs">
               The modern digital asset platform. Trade crypto with clarity and confidence.
             </p>
@@ -18,7 +18,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Trade</h4>
             <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
-              <li><Link href="/markets" className="hover:text-foreground transition-colors">Markets</Link></li>
+              <li><a href="https://ethsltd.com/" className="hover:text-foreground transition-colors">Trade</a></li>
               
               <li><Link href="/fees" className="hover:text-foreground transition-colors">Fees</Link></li>
             </ul>
@@ -37,7 +37,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Assets</h4>
             <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
-              <li><Link href="/markets" className="hover:text-foreground transition-colors">Supported Assets</Link></li>
+              <li><a href="https://ethsltd.com/" className="hover:text-foreground transition-colors">Supported Assets</a></li>
               <li><Link href="/wallet" className="hover:text-foreground transition-colors">Wallet</Link></li>
               <li><Link href="/wallet/deposit" className="hover:text-foreground transition-colors">Deposits</Link></li>
               <li><Link href="/wallet/withdraw" className="hover:text-foreground transition-colors">Withdrawals</Link></li>
