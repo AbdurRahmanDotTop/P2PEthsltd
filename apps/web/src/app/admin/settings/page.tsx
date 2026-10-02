@@ -236,18 +236,7 @@ export default function AdminSettingsPage() {
                 <p className="text-sm text-muted-foreground">Manage core system availability and behavior.</p>
               </div>
               <div className="p-6 space-y-4 divide-y divide-border">
-                <CustomSwitch 
-                  label="Maintenance Mode" 
-                  description="Disable access for all non-admin users. Displays a maintenance page."
-                  checked={formData.maintenanceMode} 
-                  onChange={(c) => handleInputChange('maintenanceMode', c)} 
-                />
-                <CustomSwitch 
-                  label="Trading Engine Active" 
-                  description="Allow users to place new spot and margin orders."
-                  checked={formData.tradingEnabled} 
-                  onChange={(c) => handleInputChange('tradingEnabled', c)} 
-                />
+                
                 <CustomSwitch 
                   label="User Registrations" 
                   description="Allow new users to sign up for accounts."

@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS binary_options;
+DROP TABLE IF EXISTS positions;
+DROP TABLE IF EXISTS trades;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS markets;

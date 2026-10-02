@@ -51,9 +51,7 @@ export function TradingExperience() {
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
               <p className="text-muted-foreground text-sm mb-6 flex-1 min-h-[60px]">{feature.desc}</p>
-              <Link href="/trade" className="text-sm font-medium text-[var(--brand-foreground)] hover:text-foreground transition-colors flex items-center">
-                {feature.cta} <span className="ml-1">&rarr;</span>
-              </Link>
+              
             </Card>
           ))}
         </div>
@@ -77,7 +75,7 @@ export function TradingExperience() {
             </ul>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="w-full sm:w-auto px-8" asChild>
-                <Link href="/trade">Start Trading</Link>
+                
               </Button>
             </div>
           </div>

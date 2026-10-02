@@ -19,7 +19,7 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Trade</h4>
             <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
               <li><Link href="/markets" className="hover:text-foreground transition-colors">Markets</Link></li>
-              <li><Link href="/trade" className="hover:text-foreground transition-colors">Spot Trading</Link></li>
+              
               <li><Link href="/fees" className="hover:text-foreground transition-colors">Fees</Link></li>
             </ul>
           </div>

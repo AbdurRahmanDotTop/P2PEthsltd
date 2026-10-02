@@ -4,7 +4,7 @@ import { eq, desc, sql, and } from 'drizzle-orm';
 import { getFeeConfig, calculateFee } from '../services/fees';
 import { generateBusinessId } from '../services/id-generator';
 import { Bindings, Variables } from '../db';
-import { users, kycProfiles, markets, payment_methods, wallets, walletTransactions, ledgerAccounts, ledgerEntries, bankTransfers, bank_accounts, real_manual_deposits, orders, positions, binaryOptions, p2pAds, p2pOrders, p2pMessages, p2pDisputes, p2pPaymentMethods, p2pFeedback, tickets, ticketMessages, notifications, cregisDeposits, cregisPayouts, sessions, expertProfiles } from 'database';
+import { users, kycProfiles, payment_methods, wallets, walletTransactions, ledgerAccounts, ledgerEntries, bankTransfers, bank_accounts, real_manual_deposits, p2pAds, p2pOrders, p2pMessages, p2pDisputes, p2pPaymentMethods, p2pFeedback, tickets, ticketMessages, notifications, cregisDeposits, cregisPayouts, sessions, expertProfiles } from 'database';
 import { jwtMiddleware } from '../middleware/jwt';
 
 export const adminRoutes = new Hono<{ Bindings: Bindings; Variables: Variables }>();
@@ -98,33 +98,7 @@ adminRoutes.get('/stats/volume-chart', async (c) => {
         gte(p2pOrders.createdAt, sevenDaysAgoDate)
       ));
 
-    // Fetch spot trading orders
-    const spotOrders = await db.select({
-      amount: orders.filledAmount,
-      price: orders.price,
-      createdAt: orders.createdAt,
-    }).from(orders)
-      .where(and(
-        eq(orders.status, 'FILLED'), 
-        gte(orders.createdAt, sevenDaysAgoDate)
-      ));
     
-    const dailyVolume: Record<string, number> = {};
-    
-    for (let i = 6; i >= 0; i--) {
-      const d = new Date(now - i * 24 * 60 * 60 * 1000);
-      const dateStr = d.toISOString().split('T')[0];
-      dailyVolume[dateStr] = 0;
-    }
-    
-    // Add P2P volume (fiat amounts)
-    p2pTrades.forEach((trade) => {
-      if (!trade.createdAt) return;
-      const dateStr = new Date(trade.createdAt).toISOString().split('T')[0];
-      if (dailyVolume[dateStr] !== undefined) {
-        dailyVolume[dateStr] += Number(trade.amount) || 0;
-      }
-    });
 
     // Add spot trading volume (filled_amount * price)
     spotOrders.forEach((order) => {
@@ -401,7 +375,7 @@ adminRoutes.get('/users/:id', async (c) => {
         kycStatus: kyc ? kyc.status : 'UNVERIFIED',
         riskLevel: 'LOW',
         balanceUsd,
-        tradingVolumeUsd: 0,
+        
         p2pVolumeUsd: 0,
         orders: recentOrders,
         p2pOrders: recentP2pOrders,
@@ -2000,7 +1974,7 @@ adminRoutes.get('/exports', async (c) => {
       if (moduleList.includes('Wallets')) exportData['Wallets'] = await fetchModuleData('wallets');
       if (moduleList.includes('Transactions')) exportData['Transactions'] = await fetchModuleData('walletTransactions');
       if (moduleList.includes('Trades')) exportData['Trades'] = await fetchModuleData('trades');
-      if (moduleList.includes('Trading Orders')) exportData['Trading Orders'] = await fetchModuleData('tradingOrders');
+      
       if (moduleList.includes('P2P Ads')) exportData['P2P Ads'] = await fetchModuleData('p2pAds');
       if (moduleList.includes('P2P Orders')) exportData['P2P Orders'] = await fetchModuleData('p2pOrders');
       if (moduleList.includes('Escrow Records')) exportData['Escrow Records'] = await fetchModuleData('p2pEscrows');

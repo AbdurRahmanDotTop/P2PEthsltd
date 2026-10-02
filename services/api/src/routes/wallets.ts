@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq, desc, and, or } from 'drizzle-orm';
 import { Bindings, Variables } from '../db';
-import { wallets, walletTransactions, bankTransfers, real_manual_deposits, bank_accounts, payment_methods, assetConversions, users, currencyRates, p2pOrders, p2pAds, expertBookings, expertProfiles, orders as tradingOrders } from 'database';
+import { wallets, walletTransactions, bankTransfers, real_manual_deposits, bank_accounts, payment_methods, assetConversions, users, currencyRates, p2pOrders, p2pAds, expertBookings, expertProfiles } from 'database';
 import { jwtMiddleware } from '../middleware/jwt';
 import { CregisClient } from '../services/cregis';
 import { getFeeConfig, calculateFee, getLimit } from '../services/fees';
@@ -293,31 +293,7 @@ walletRoutes.get('/transactions', async (c) => {
         updatedAt: conv.createdAt.toISOString(),
       });
     });
-  // 4. Trading Orders
-  const userOrders = await db.select().from(tradingOrders)
-    .where(and(
-      eq(tradingOrders.userId, user.id),
-      eq(tradingOrders.status, 'FILLED')
-    )).all();
-    
-  userOrders.forEach(order => {
-    const isBuy = order.side === 'BUY';
-    const baseAsset = order.marketSymbol.split('-')[0];
-    const quoteAsset = order.marketSymbol.split('-')[1];
-    
-    // The asset the user received
-    mappedTxs.push({
-      id: order.id,
-      type: 'TRADE',
-      asset: isBuy ? baseAsset : quoteAsset,
-      amount: parseFloat(order.filledAmount) * (isBuy ? 1 : parseFloat(order.price || '0')),
-      fee: 0,
-      status: 'COMPLETED',
-      reference: order.displayId,
-      createdAt: order.createdAt.toISOString(),
-      updatedAt: order.updatedAt.toISOString(),
-    });
-  });
+
 
   // 5. Expert Bookings
   const eProfile = await db.select().from(expertProfiles).where(eq(expertProfiles.userId, user.id)).get();

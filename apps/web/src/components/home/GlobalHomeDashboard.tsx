@@ -21,7 +21,7 @@ const heroSlides = [
     subtitle: "Fast & seamless professional trading experience.",
     bg: "bg-gradient-to-r from-blue-700 to-blue-500",
     cta: "Start Trading",
-    href: "/trade",
+    
     bgElement: (
       <div className="absolute right-[-20px] top-0 bottom-0 flex items-center justify-center opacity-90 z-0">
         <span className="text-[120px] font-black text-yellow-500 leading-none drop-shadow-2xl italic">0</span>
@@ -75,7 +75,7 @@ const heroSlides = [
     subtitle: "Trading, P2P, and portfolio management in one unified ecosystem.",
     bg: "bg-gradient-to-r from-orange-700 to-red-600",
     cta: "Get Started",
-    href: "/trade",
+    
     bgElement: (
       <div className="absolute right-[-10px] top-6 opacity-20 z-0 pointer-events-none">
         <Globe className="w-32 h-32 text-white transform rotate-6" />
@@ -140,7 +140,7 @@ export function GlobalHomeDashboard() {
 
   const quickActions = [
     { name: "Deposit", icon: Download, href: "/wallet/deposit" },
-    { name: "Option", icon: Clock, href: "/trade" },
+    { name: "Option", icon: Clock,  },
     { name: "P2P", icon: CreditCard, href: "/p2p" },
     { name: "Share", icon: Share2, href: "/" },
     { name: "Chat", icon: MessageCircle, href: "/support" },
@@ -243,35 +243,6 @@ export function GlobalHomeDashboard() {
         })}
       </div>
 
-      {/* Gainers Table */}
-      <div className="mt-8 px-4 flex-1">
-        <div className="flex items-center justify-center relative mb-4">
-          <div className="absolute w-full h-[1px] bg-white/10"></div>
-          <h3 className="bg-[#121212] px-4 text-[#00C087] font-semibold relative z-10">Gainers</h3>
-        </div>
-
-        <div className="bg-[#1A1C24] rounded-full px-4 py-2 flex items-center justify-between text-xs text-gray-400 mb-4">
-          <span className="flex-1">Pair</span>
-          <span className="flex-1 text-center">Latest Price</span>
-          <span className="flex-1 text-right">24H Change</span>
-        </div>
-
-        <div className="flex flex-col gap-5 px-1">
-          {gainers.map((market, i) => (
-            <Link href={`/trade/${market.symbol.replace('/', '_')}`} key={i} className="flex items-center justify-between group">
-              <span className="flex-1 font-bold text-sm text-gray-200">{market.symbol}</span>
-              <span className="flex-1 text-center font-mono text-[15px] font-medium text-gray-200">
-                {market.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 6 })}
-              </span>
-              <div className="flex-1 flex justify-end">
-                <span className={`px-3 py-1.5 rounded-[4px] text-xs font-bold min-w-[70px] text-center ${market.priceChange24h >= 0 ? 'bg-[#00C087] text-[#121212]' : 'bg-red-500 text-white'}`}>
-                  {market.priceChange24h >= 0 ? '+' : ''}{market.priceChange24h.toFixed(2)}%
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

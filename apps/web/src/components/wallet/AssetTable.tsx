@@ -126,9 +126,7 @@ export function AssetTable({ balances }: { balances: AssetBalance[] }) {
                       <Link href={`/wallet/withdraw?asset=${b.symbol}`}>
                         <Button variant="ghost" size="sm" className="h-8 text-xs">Withdraw</Button>
                       </Link>
-                      <Link href={`/trade?market=${b.symbol}-USDT`}>
-                        <Button variant="secondary" size="sm" className="h-8 text-xs">Trade</Button>
-                      </Link>
+                      
                     </div>
                   </td>
                 </tr>

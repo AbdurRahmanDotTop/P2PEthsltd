@@ -73,7 +73,7 @@ export function Header() {
 
             <nav className="hidden lg:flex items-center gap-6">
               <Link href="/markets" className={`text-sm font-medium transition-colors ${pathname === '/markets' ? 'text-brand-foreground font-semibold border-b-2 border-brand-foreground pb-1' : 'text-muted-foreground hover:text-foreground'}`}>Markets</Link>
-              <Link href="/trade" className={`text-sm font-medium transition-colors ${pathname?.startsWith('/trade') ? 'text-brand-foreground font-semibold border-b-2 border-brand-foreground pb-1' : 'text-muted-foreground hover:text-foreground pb-1'}`}>Trade</Link>
+              
               <Link href="/p2p" className={`text-sm font-medium transition-colors ${pathname?.startsWith('/p2p') ? 'text-brand-foreground font-semibold border-b-2 border-brand-foreground pb-1' : 'text-muted-foreground hover:text-foreground pb-1'}`}>P2P</Link>
               <Link href="/wallet" className={`text-sm font-medium transition-colors ${pathname?.startsWith('/wallet') ? 'text-brand-foreground font-semibold border-b-2 border-brand-foreground pb-1' : 'text-muted-foreground hover:text-foreground pb-1'}`}>Wallet</Link>
               <Link href="/markets" className={`text-sm font-medium transition-colors ${pathname === '/markets' ? 'text-brand-foreground font-semibold border-b-2 border-brand-foreground pb-1' : 'text-muted-foreground hover:text-foreground pb-1'}`}>Assets</Link>
@@ -189,7 +189,7 @@ export function Header() {
         <div className="lg:hidden absolute top-full left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto bg-background border-t border-border p-4 pb-50 shadow-xl">
           <nav className="flex flex-col gap-4">
             <Link href="/markets" className={`text-lg font-medium py-2 border-b border-border ${pathname === '/markets' ? 'text-brand-foreground font-semibold' : 'text-foreground'}`} onClick={() => setMobileMenuOpen(false)}>Markets</Link>
-            <Link href="/trade" className={`text-lg font-medium py-2 border-b border-border ${pathname?.startsWith('/trade') ? 'text-brand-foreground font-semibold' : 'text-foreground'}`} onClick={() => setMobileMenuOpen(false)}>Trade</Link>
+            
             <Link href="/p2p" className={`text-lg font-medium py-2 border-b border-border ${pathname?.startsWith('/p2p') ? 'text-brand-foreground font-semibold' : 'text-foreground'}`} onClick={() => setMobileMenuOpen(false)}>P2P</Link>
             <Link href="/wallet" className={`text-lg font-medium py-2 border-b border-border ${pathname?.startsWith('/wallet') ? 'text-brand-foreground font-semibold' : 'text-foreground'}`} onClick={() => setMobileMenuOpen(false)}>Wallet</Link>
             <Link href="/markets" className="text-lg font-medium text-foreground py-2 border-b border-border" onClick={() => setMobileMenuOpen(false)}>Assets</Link>

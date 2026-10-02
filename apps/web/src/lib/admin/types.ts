@@ -21,7 +21,6 @@ export interface AdminUser {
   kycStatus: "VERIFIED" | "PENDING" | "REJECTED" | "UNVERIFIED";
   riskLevel: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
   balanceUsd: number;
-  tradingVolumeUsd: number;
   p2pVolumeUsd: number;
   createdAt: string;
   lastLoginAt: string;

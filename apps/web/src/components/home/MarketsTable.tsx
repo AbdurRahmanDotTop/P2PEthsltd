@@ -92,7 +92,7 @@ export function MarketsTable() {
                       <td className="py-4 font-mono text-muted-foreground/90">{market.vol}</td>
                       <td className="py-4 text-right pr-4">
                         <Button variant="outline" size="sm" className="border-border hover:bg-foreground/10" asChild>
-                          <Link href={`/trade?market=${market.asset}-${market.quote}`}>Trade</Link>
+                          
                         </Button>
                       </td>
                     </tr>
@@ -128,7 +128,7 @@ export function MarketsTable() {
                       <div className="font-mono text-sm text-muted-foreground/90">{market.vol}</div>
                     </div>
                     <Button variant="outline" size="sm" className="border-border" asChild>
-                      <Link href={`/trade?market=${market.asset}-${market.quote}`}>Trade</Link>
+                      
                     </Button>
                   </div>
                 </div>

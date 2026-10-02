@@ -38,7 +38,7 @@ export const adminNavGroups = [
     items: [
       { name: "Trading", href: "/admin/trading", icon: Activity },
       { name: "Orders", href: "/admin/orders", icon: ListOrdered },
-      { name: "Trades", href: "/admin/trades", icon: ArrowRightLeft }
+      
     ]
   },
   {
