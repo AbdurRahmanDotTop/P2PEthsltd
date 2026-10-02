@@ -13,25 +13,6 @@ const heroSlides = [
     id: 1,
     title: (
       <>
-        Brand New Rates<br />
-        <span className="text-yellow-400">0 Trading Fees</span><br />
-        for Spot Trade!
-      </>
-    ),
-    subtitle: "Fast & seamless professional trading experience.",
-    bg: "bg-gradient-to-r from-blue-700 to-blue-500",
-    cta: "Start Trading",
-    
-    bgElement: (
-      <div className="absolute right-[-20px] top-0 bottom-0 flex items-center justify-center opacity-90 z-0">
-        <span className="text-[120px] font-black text-yellow-500 leading-none drop-shadow-2xl italic">0</span>
-      </div>
-    )
-  },
-  {
-    id: 2,
-    title: (
-      <>
         Buy & Sell Crypto<br />
         <span className="text-[#00C087]">Through P2P</span>
       </>
@@ -47,7 +28,7 @@ const heroSlides = [
     )
   },
   {
-    id: 3,
+    id: 2,
     title: (
       <>
         Your Crypto.<br />
@@ -65,17 +46,17 @@ const heroSlides = [
     )
   },
   {
-    id: 4,
+    id: 3,
     title: (
       <>
         Everything You Need<br />
         <span className="text-orange-400">For Your Journey</span>
       </>
     ),
-    subtitle: "Trading, P2P, and portfolio management in one unified ecosystem.",
+    subtitle: "P2P and portfolio management in one unified ecosystem.",
     bg: "bg-gradient-to-r from-orange-700 to-red-600",
     cta: "Get Started",
-    
+    href: "/wallet",
     bgElement: (
       <div className="absolute right-[-10px] top-6 opacity-20 z-0 pointer-events-none">
         <Globe className="w-32 h-32 text-white transform rotate-6" />
