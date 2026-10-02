@@ -4,14 +4,10 @@ compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true
 
-[[routes]]
-pattern = "p2p-api.ethsltd.com"
-custom_domain = true
-
 [[d1_databases]]
 binding = "DB"
-database_name = "ethsltd_db"
-database_id = "3e91dec1-5e94-434a-9697-7a9217592afe"
+database_name = "p2p_ethsltd_isolated_db"
+database_id = "73501363-745e-4e12-9442-38c6b2af6f4c"
 migrations_dir = "../../database/migrations"
 
 # [[r2_buckets]]

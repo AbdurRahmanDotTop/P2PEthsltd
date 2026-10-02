@@ -14,10 +14,7 @@
   "observability": {
     "enabled": true
   },
-  "routes": [
-    { "pattern": "p2p.ethsltd.com", "custom_domain": true }
-  ],
   "vars": {
-    "NEXT_PUBLIC_API_URL": "https://p2p-api.ethsltd.com"
+    "NEXT_PUBLIC_API_URL": "https://p2p-api.ethsltd.workers.dev"
   }
 }
