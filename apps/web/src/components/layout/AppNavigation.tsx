@@ -45,19 +45,19 @@ export function AppNavigation() {
       name: "P2P",
       isMenu: true,
       icon: Zap,
-      isActive: pathname.startsWith("/p2p") || pathname.startsWith("/expert"),
+      isActive: pathname?.startsWith("/p2p") || pathname?.startsWith("/expert"),
     },
     {
       name: "Wallet",
       href: "/wallet?tab=currency",
       icon: CreditCard,
-      isActive: pathname.startsWith("/wallet") && tab !== "asset",
+      isActive: pathname?.startsWith("/wallet") && tab !== "asset",
     },
     {
       name: "Assets",
       href: "/wallet?tab=asset",
       icon: Wallet,
-      isActive: (pathname.startsWith("/wallet") && tab === "asset") || pathname === "/account/profile",
+      isActive: (pathname?.startsWith("/wallet") && tab === "asset") || pathname === "/account/profile",
     },
   ];
 
