@@ -140,7 +140,6 @@ export function GlobalHomeDashboard() {
 
   const quickActions = [
     { name: "Deposit", icon: Download, href: "/wallet/deposit" },
-    { name: "Option", icon: Clock,  },
     { name: "P2P", icon: CreditCard, href: "/p2p" },
     { name: "Share", icon: Share2, href: "/" },
     { name: "Chat", icon: MessageCircle, href: "/support" },
