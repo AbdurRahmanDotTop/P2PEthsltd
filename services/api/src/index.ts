@@ -34,14 +34,16 @@ const app = new Hono<{ Bindings: Bindings; Variables: Variables }>();
 
 app.use('*', cors({
   origin: (origin) => {
-    if (!origin) return 'https://ethsltd.com';
+    if (!origin) return 'https://p2p.ethsltd.com';
     const allowed = [
+      'https://p2p.ethsltd.com', 
       'https://ethsltd.com', 
       'https://www.ethsltd.com',
+      'https://p2p-ethsltd-web.ethsltd.workers.dev',
       'https://ethsltd-web.ethsltd.workers.dev',
       'http://localhost:3000'
     ];
-    return allowed.includes(origin) ? origin : 'https://ethsltd.com';
+    return allowed.includes(origin) ? origin : 'https://p2p.ethsltd.com';
   },
   allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization', 'X-Trading-Mode', 'x-cregis-signature'],

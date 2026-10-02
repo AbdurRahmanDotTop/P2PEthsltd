@@ -4,9 +4,9 @@ compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true
 
-# [[routes]]
-# pattern = "api.ethsltd.com"
-# custom_domain = true
+[[routes]]
+pattern = "p2p-api.ethsltd.com"
+custom_domain = true
 
 [[d1_databases]]
 binding = "DB"
