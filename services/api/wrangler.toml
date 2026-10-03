@@ -6,8 +6,8 @@ workers_dev = true
 
 [[d1_databases]]
 binding = "DB"
-database_name = "p2p_ethsltd_isolated_db"
-database_id = "73501363-745e-4e12-9442-38c6b2af6f4c"
+database_name = "p2p_ethsltd_db"
+database_id = "16bc3cd0-2914-4d2c-8e57-dbdb2147b921"
 migrations_dir = "../../database/migrations"
 
 # [[r2_buckets]]
