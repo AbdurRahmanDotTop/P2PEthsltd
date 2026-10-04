@@ -44,8 +44,10 @@ export function P2PTable({ onSelectAd }: { onSelectAd: (ad: P2PAdvertisement, me
               }
               if (!Array.isArray(pm)) pm = [];
               paymentMatch = pm.some((method: any) => {
-                const type = typeof method === 'string' ? method : method.type;
-                return type === query.paymentMethod;
+                const typeStr = typeof method === 'string' ? method : (method.type || '');
+                const normalizedType = typeStr.toLowerCase().replace(/_/g, ' ');
+                const normalizedQuery = (query.paymentMethod || '').toLowerCase().replace(/_/g, ' ');
+                return normalizedType === normalizedQuery || normalizedType.includes(normalizedQuery) || normalizedQuery.includes(normalizedType);
               });
             }
 
